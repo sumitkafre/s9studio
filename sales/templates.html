@@ -1,0 +1,899 @@
+<title>S9 Sales Templates</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Google+Sans+Flex:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+/* S9 Design System v1.0, same tokens as the S9 Sales Flow page. Dark default, monochrome UI,
+   stage accents only inside small circles. Layout: hero → sticky index (left) + 12 template sections (right).
+   Each template card borrows the flow's type language: deck = inverse band, legal = heavy border,
+   email = dashed, internal = raised fill, document = hairline. */
+:root{
+  --surface-page:#080808; --surface-raised:#1A1A1A; --surface-inverse:#FFFFFF;
+  --text-primary:#FFFFFF; --text-secondary:#A3A3A3; --text-tertiary:#666666; --text-inverse:#080808;
+  --border-default:#292929; --border-strong:#FFFFFF; --ph-bg:#262626;
+  --mint:#4ED9B8; --lavender:#AA85F5; --pink:#F58CC5; --butter:#F5DF88; --coral:#FF9675; --lime:#D0E3A7; --on-accent:#080808;
+  --font:"Google Sans","Google Sans Flex","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --r-lg:16px; --r-md:12px; --r-sm:8px; --r-pill:999px;
+  --margin:64px; --section:96px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --surface-page:#FFFFFF; --surface-raised:#F5F5F5; --surface-inverse:#080808;
+    --text-primary:#080808; --text-secondary:#666666; --text-tertiary:#A3A3A3; --text-inverse:#FFFFFF;
+    --border-default:#E3E3E3; --border-strong:#080808; --ph-bg:#EDEDED; color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --surface-page:#FFFFFF; --surface-raised:#F5F5F5; --surface-inverse:#080808;
+  --text-primary:#080808; --text-secondary:#666666; --text-tertiary:#A3A3A3; --text-inverse:#FFFFFF;
+  --border-default:#E3E3E3; --border-strong:#080808; --ph-bg:#EDEDED; color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  background:var(--surface-page);color:var(--text-primary);font-family:var(--font);font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased;
+  padding-left:max(var(--margin),env(safe-area-inset-left,0px));padding-right:max(var(--margin),env(safe-area-inset-right,0px));
+}
+:focus-visible{outline:2px solid var(--border-strong);outline-offset:3px}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3,h4{text-wrap:balance}
+a{color:inherit}
+.wrap{max-width:1312px;margin:0 auto;padding-block:24px var(--section)}
+.mono{font-family:var(--mono);font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.04em}
+
+.brand{display:flex;align-items:center;gap:10px;height:64px;font-size:18px}
+.brand .name{font-weight:600}
+.brand .bar{font-weight:500;font-size:16px;color:var(--text-secondary)}
+.brand .tag{color:var(--text-secondary)}
+
+.hero{padding-block:64px 48px;display:flex;flex-direction:column;gap:32px}
+.eyebrow{font-size:18px;line-height:28px;color:var(--text-secondary)}
+.hero h1{font-size:clamp(44px,7.4vw,112px);line-height:1.03;font-weight:500;letter-spacing:-.04em;max-width:12ch}
+.split{display:grid;grid-template-columns:45fr 40fr;gap:40px;align-items:end;justify-content:space-between}
+.lede{font-size:22px;line-height:32px;max-width:44ch}
+.howto{display:flex;flex-direction:column;gap:10px;color:var(--text-secondary);font-size:15px;line-height:22px}
+.howto b{color:var(--text-primary);font-weight:500}
+.ph{background:var(--ph-bg);color:var(--text-primary);border-radius:4px;padding:0 4px;font-family:var(--mono);font-size:.84em;white-space:nowrap}
+
+.strip{display:flex;flex-wrap:wrap;gap:8px 24px;padding:20px 0;border-top:1px solid var(--border-strong);font-size:14px;line-height:20px;color:var(--text-secondary)}
+.strip i{display:inline-block;width:22px;height:12px;border-radius:4px;vertical-align:-1px;margin-right:8px}
+.k-deck{background:var(--surface-inverse)} .k-doc{border:1px solid var(--border-strong)} .k-legal{border:2.5px solid var(--border-strong)}
+.k-email{border:1.5px dashed var(--border-strong)} .k-internal{background:var(--surface-raised);border:1px solid var(--border-default)}
+.legalnote{margin-left:auto;color:var(--text-primary)}
+
+/* Two columns: index + templates */
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;margin-top:48px;align-items:start}
+.index{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);display:flex;flex-direction:column;gap:24px;max-height:calc(100vh - 48px);overflow:auto;padding-bottom:16px}
+.index h4{font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary);font-weight:400;padding-bottom:8px;border-bottom:1px solid var(--border-strong)}
+.index ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.index a{display:grid;grid-template-columns:28px 1fr;gap:4px;padding:7px 0;text-decoration:none;font-size:15px;line-height:20px;border-bottom:1px solid var(--border-default)}
+.index a span{font-family:var(--mono);font-size:12px;color:var(--text-tertiary);padding-top:1px}
+.index a:hover b,.index a[aria-current="true"] b{text-decoration:underline;text-underline-offset:4px}
+.index b{font-weight:500}
+
+.groupHead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:8px;border-top:1px solid var(--border-strong);margin-bottom:8px}
+.groupHead h2{font-size:clamp(32px,4vw,56px);line-height:1.1;font-weight:400;letter-spacing:-.03em}
+.groupHead p{color:var(--text-secondary);font-size:16px}
+.group{display:flex;flex-direction:column;gap:72px;margin-bottom:var(--section)}
+.group > .groupHead{margin-bottom:-24px}
+
+.tmpl{scroll-margin-top:24px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.thead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 24px;align-items:end}
+.thead .top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--text-secondary)}
+.thead h3{font-size:clamp(28px,3vw,40px);line-height:1.15;font-weight:500;letter-spacing:-.02em;margin-top:8px}
+.thead .purpose{color:var(--text-secondary);font-size:18px;line-height:28px;max-width:60ch;margin-top:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:var(--r-pill);padding:3px 10px;border:1px solid var(--border-strong);color:var(--text-primary)}
+.chip[data-t="deck"]{background:var(--surface-inverse);color:var(--text-inverse)}
+.chip[data-t="legal"]{border-width:2.5px;padding:1.5px 8.5px}
+.chip[data-t="email"]{border:1.5px dashed var(--border-strong)}
+.chip[data-t="internal"]{background:var(--surface-raised);border-color:var(--border-default)}
+.steps{display:inline-flex;flex-wrap:wrap;gap:6px 12px}
+.st{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);border:1px solid var(--border-strong);flex:none}
+.copy{font:500 14px/20px var(--font);color:var(--text-inverse);background:var(--surface-inverse);border:1px solid var(--border-strong);border-radius:var(--r-pill);padding:9px 18px;cursor:pointer;white-space:nowrap}
+.copy:hover{opacity:.85}
+.copy[data-done]{background:transparent;color:var(--text-primary)}
+
+/* Template bodies */
+.tpl{border-radius:var(--r-lg);padding:32px;border:1px solid var(--border-strong);display:flex;flex-direction:column;gap:24px;min-width:0;font-size:16px;line-height:26px}
+.tmpl[data-t="internal"] .tpl{background:var(--surface-raised);border-color:var(--border-default)}
+.tmpl[data-t="legal"] .tpl{border-width:2.5px;padding:30.5px}
+.tmpl[data-t="email"] .tpl{border:1.5px dashed var(--border-strong);padding:31.5px}
+.tmpl[data-t="deck"] .tpl{padding:0;overflow:hidden}
+.tpl h4{font-size:20px;line-height:28px;font-weight:500}
+.tpl h5{margin:0;font-family:var(--mono);font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary);font-weight:400}
+.tpl p,.tpl li{max-width:72ch}
+.tpl ul,.tpl ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.tpl .sec{display:flex;flex-direction:column;gap:10px}
+.tpl .muted{color:var(--text-secondary)}
+.tpl .note{color:var(--text-secondary);font-size:14px;line-height:20px;border-left:2px solid var(--border-strong);padding-left:12px}
+.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px}
+.check{list-style:none!important;padding-left:0!important}
+.check li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.check li::before{content:"";width:16px;height:16px;border:1.5px solid var(--border-strong);border-radius:4px;margin-top:5px}
+.tbl{overflow-x:auto;border:1px solid var(--border-default);border-radius:var(--r-md)}
+.tbl table{border-collapse:collapse;width:100%;font-size:14px;line-height:20px;min-width:560px}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--border-default)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary);font-weight:400}
+.tbl td:first-child{font-weight:500;white-space:nowrap}
+.kv{display:grid;grid-template-columns:200px 1fr;border-top:1px solid var(--border-default)}
+.kv > *{padding:10px 0;border-bottom:1px solid var(--border-default)}
+.kv dt{color:var(--text-secondary)}
+.kv dd{margin:0}
+.sig{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;padding-top:8px}
+.sig div{display:flex;flex-direction:column;gap:18px}
+.sig span{border-bottom:1px solid var(--border-strong);padding-bottom:4px;color:var(--text-secondary);font-size:14px}
+.clauses{counter-reset:c;list-style:none!important;padding-left:0!important;gap:16px!important}
+.clauses > li{counter-increment:c;display:grid;grid-template-columns:36px 1fr;gap:4px}
+.clauses > li::before{content:counter(c);font-family:var(--mono);font-size:13px;color:var(--text-secondary);padding-top:1px}
+.clauses b{font-weight:500}
+
+/* Deck: slides as a numbered strip of 16:9 thumbnails */
+.deckband{background:var(--surface-inverse);color:var(--text-inverse);padding:16px 32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.slides{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;padding:24px 32px 32px}
+.slide{aspect-ratio:16/10;max-width:100%;border:1px solid var(--border-default);border-radius:var(--r-sm);padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0;overflow:auto}
+.slide .mono{color:var(--text-tertiary)}
+.slide b{font-weight:500;font-size:17px;line-height:22px}
+.slide p{font-size:13px;line-height:19px;color:var(--text-secondary)}
+.deckfoot{padding:0 32px 32px;display:flex;flex-direction:column;gap:12px}
+
+/* Emails */
+.mail{display:flex;flex-direction:column;gap:12px;padding-bottom:28px;border-bottom:1px solid var(--border-default)}
+.mail:last-child{border-bottom:0;padding-bottom:0}
+.mail .mh{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.mail .mh b{font-weight:500;font-size:18px}
+.mail .subj{font-family:var(--mono);font-size:13px;line-height:20px;color:var(--text-secondary)}
+.mail .msg{white-space:pre-line;max-width:68ch}
+.mini{font:500 12px/16px var(--mono);text-transform:uppercase;letter-spacing:.04em;background:none;border:1px solid var(--border-default);color:var(--text-secondary);border-radius:var(--r-pill);padding:4px 10px;cursor:pointer;margin-left:auto}
+.mini:hover{border-color:var(--border-strong);color:var(--text-primary)}
+
+/* CRM board */
+.board{overflow-x:auto;padding-bottom:4px}
+.lanes{display:grid;grid-template-columns:repeat(12,190px);gap:10px}
+.lane{border:1px solid var(--border-default);border-radius:var(--r-md);padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--surface-page);font-size:13px;line-height:18px}
+.lane.side{border-style:dashed;border-color:var(--border-strong)}
+.lane .lh{display:flex;align-items:center;gap:8px;font-weight:500;font-size:14px}
+.lane span{color:var(--text-secondary)}
+.lane em{font-style:normal;color:var(--text-primary)}
+
+.foot{color:var(--text-secondary);font-size:14px;line-height:20px;max-width:70ch;border-top:1px solid var(--border-strong);padding-top:24px}
+
+@media (max-width:1100px){
+  .layout{grid-template-columns:1fr;gap:40px}
+  .index{position:static;max-height:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+}
+@media (max-width:834px){
+  :root{--margin:32px;--section:72px}
+  .split{grid-template-columns:1fr;gap:28px}
+  .index{grid-template-columns:1fr}
+  .cols2,.sig{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr}
+  .kv dt{border-bottom:0;padding-bottom:0}
+}
+@media (max-width:767px){
+  :root{--margin:16px;--section:56px}
+  .brand .bar,.brand .tag{display:none}
+  .hero{padding-block:40px 32px;gap:24px}
+  .lede{font-size:18px;line-height:28px}
+  .tpl{padding:20px}
+  .tmpl[data-t="legal"] .tpl{padding:18.5px}
+  .tmpl[data-t="email"] .tpl{padding:19.5px}
+  .deckband{padding:14px 20px}.slides{padding:20px;grid-template-columns:1fr}.deckfoot{padding:0 20px 20px}
+  .thead{grid-template-columns:1fr}
+  .copy{justify-self:start}
+  .legalnote{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+  <div class="brand"><span class="name">S9® Studio</span><span class="bar">|</span><span class="tag">Global Design Agency</span></div>
+
+  <header class="hero">
+    <div class="eyebrow">Sales flow · the kit</div>
+    <h1>Twelve templates, ready to fill in</h1>
+    <div class="split">
+      <p class="lede">Every deck, document, checklist and email the sales flow calls for, drafted once so each new client starts from the same place.</p>
+      <div class="howto">
+        <span><b>Fill the gaps.</b> Anything in a grey box like <span class="ph">[Client]</span> is yours to replace.</span>
+        <span><b>Copy and go.</b> Each template has a Copy button that takes the plain text into your doc, deck or email tool.</span>
+        <span><b>Keep the order.</b> Numbers match the kit list on the S9 Sales Flow page.</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip">
+    <span><i class="k-deck"></i>Deck</span><span><i class="k-doc"></i>Document</span><span><i class="k-legal"></i>Legal</span>
+    <span><i class="k-email"></i>Email</span><span><i class="k-internal"></i>Internal</span>
+    <span class="legalnote">Legal templates are drafts. Have a lawyer in your jurisdiction review them before first use.</span>
+  </div>
+
+  <div class="layout">
+    <nav class="index" aria-label="Templates">
+      <div><h4>Sell · Foundation to Evaluation</h4><ol>
+        <li><a href="#playbook"><span>01</span><b>Sales Playbook</b></a></li>
+        <li><a href="#crm"><span>02</span><b>CRM pipeline</b></a></li>
+        <li><a href="#credentials"><span>03</span><b>Credentials Deck</b></a></li>
+        <li><a href="#website"><span>04</span><b>Website</b></a></li>
+        <li><a href="#proposal"><span>05</span><b>Proposal</b></a></li>
+      </ol></div>
+      <div><h4>Sign · Trial to Subscription</h4><ol>
+        <li><a href="#trial-brief"><span>06</span><b>Trial Brief</b></a></li>
+        <li><a href="#agreement"><span>07</span><b>Service Agreement</b></a></li>
+        <li><a href="#nda"><span>08</span><b>Mutual NDA</b></a></li>
+      </ol></div>
+      <div><h4>Serve · Onboarding to Renewal</h4><ol>
+        <li><a href="#onboarding"><span>09</span><b>Onboarding checklist</b></a></li>
+        <li><a href="#delivery"><span>10</span><b>Delivery &amp; QA checklist</b></a></li>
+        <li><a href="#review"><span>11</span><b>Review deck</b></a></li>
+        <li><a href="#emails"><span>12</span><b>Email templates</b></a></li>
+      </ol></div>
+    </nav>
+
+    <main>
+      <!-- ============ SELL ============ -->
+      <section class="group">
+        <div class="groupHead"><h2>Sell</h2><p>Foundation to Evaluation</p></div>
+
+        <!-- 01 Playbook -->
+        <article class="tmpl" id="playbook" data-t="internal">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">01</span><span class="chip mono" data-t="internal">Internal</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--lime)"></i>Foundation</span><span class="st"><i class="dot" style="--accent:var(--mint)"></i>Discovery</span><span class="st"><i class="dot" style="--accent:var(--mint)"></i>Evaluation</span></span></div>
+              <h3>Sales Playbook</h3>
+              <p class="purpose">One page you read before every call. Who we sell to, who we don't, what to ask, what to say when they push back, and what it costs.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <div class="sec">
+              <h5>Ideal client in one sentence</h5>
+              <p>We work with <span class="ph">[company type, e.g. funded B2B software companies]</span> of <span class="ph">[20–200]</span> people who ship design every week but don't have, or can't hire fast enough, a senior in-house design team.</p>
+            </div>
+            <div class="cols2">
+              <div class="sec">
+                <h5>Good fit when they…</h5>
+                <ul>
+                  <li>Have ongoing design work, not a single one-off project</li>
+                  <li>Have a budget of at least <span class="ph">[monthly fee of the entry plan]</span> a month</li>
+                  <li>Can name one decision-maker who will give feedback within 48 hours</li>
+                  <li>Want a partner who joins their tools and rituals</li>
+                  <li>Can start within <span class="ph">[6]</span> weeks</li>
+                </ul>
+              </div>
+              <div class="sec">
+                <h5>Not a fit when they…</h5>
+                <ul>
+                  <li>Need one logo or one landing page and nothing after</li>
+                  <li>Want fixed-price spec work or free pitch concepts</li>
+                  <li>Have no one with authority to approve work</li>
+                  <li>Shop on price alone or ask for a discount before scope</li>
+                  <li>Expect us to replace a whole product team</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sec">
+              <h5>Discovery questions</h5>
+              <ol>
+                <li><b>Context.</b> Tell me about the company and where design sits today. Who does it now?</li>
+                <li><b>Problem.</b> What made you start looking for design help now?</li>
+                <li><b>Stakes.</b> What happens if this stays the same for another six months?</li>
+                <li><b>Success.</b> Six months from now, what would make you say this worked?</li>
+                <li><b>Work.</b> What's on the design list for the next 90 days?</li>
+                <li><b>People.</b> Who would we work with day to day? Who signs off?</li>
+                <li><b>Process.</b> How do you usually choose a partner like us? Who else is involved?</li>
+                <li><b>Budget.</b> Do you have a monthly range in mind for design?</li>
+                <li><b>Timing.</b> When would you ideally want someone working on this?</li>
+              </ol>
+              <p class="note">Close every call with the two-minute explainer: "We work as your embedded design team on a monthly subscription. You get a dedicated senior designer in your tools, weekly shipping, and you can pause or stop with <span class="ph">[30]</span> days' notice. Most clients start with a one-week paid trial on a real problem."</p>
+            </div>
+            <div class="sec">
+              <h5>Answers to common objections</h5>
+              <div class="tbl"><table>
+                <tr><th>They say</th><th>You say</th></tr>
+                <tr><td>"It's expensive."</td><td>Compare it with a senior hire: salary, recruiting, tools and three months to ramp. The trial week lets you check the value before committing.</td></tr>
+                <tr><td>"We could hire in-house."</td><td>You could, and some clients do later. We cover the gap now and help you hire when you're ready.</td></tr>
+                <tr><td>"We tried an agency before."</td><td>What went wrong? (Listen.) We work inside your tools on a weekly rhythm, and you can stop with <span class="ph">[30]</span> days' notice.</td></tr>
+                <tr><td>"Not the right time."</td><td>Understood. What would need to change? Can I check in on <span class="ph">[date]</span>?</td></tr>
+                <tr><td>"Can you do a free sample?"</td><td>We don't do free work, but the trial is one paid week on a real problem with clear success criteria.</td></tr>
+                <tr><td>"What about our IP?"</td><td>Once paid, you own the final work. It's in the trial brief and the agreement.</td></tr>
+              </table></div>
+            </div>
+            <div class="sec">
+              <h5>Plans and prices</h5>
+              <div class="tbl"><table>
+                <tr><th>Plan</th><th>Monthly fee</th><th>What's included</th><th>Best for</th></tr>
+                <tr><td><span class="ph">[Plan 1]</span></td><td><span class="ph">[fee]</span></td><td><span class="ph">[1 designer, 1 active request at a time]</span></td><td><span class="ph">[steady product work]</span></td></tr>
+                <tr><td><span class="ph">[Plan 2]</span></td><td><span class="ph">[fee]</span></td><td><span class="ph">[2 designers, 2 active requests]</span></td><td><span class="ph">[product plus brand]</span></td></tr>
+                <tr><td><span class="ph">[Plan 3]</span></td><td><span class="ph">[fee]</span></td><td><span class="ph">[design lead + team, unlimited queue]</span></td><td><span class="ph">[scaling teams]</span></td></tr>
+              </table></div>
+              <p><b>Trial offer:</b> one week, <span class="ph">[price]</span>, paid upfront. <span class="ph">[Optional: credited to the first month if they subscribe within 14 days.]</span></p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 CRM -->
+        <article class="tmpl" id="crm" data-t="internal">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">02</span><span class="chip mono" data-t="internal">Internal</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--lime)"></i>Foundation</span><span class="st">Used at every step</span></span></div>
+              <h3>CRM pipeline</h3>
+              <p class="purpose">One column per step of the flow, with the rule for entering it and the next action that keeps the deal moving. Works in any CRM, Notion board or spreadsheet.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <div class="board"><div class="lanes">
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--mint)"></i>Awareness</div><span>Enter when</span><em>Lead named, first email sent</em><span>Next action</span><em>Book discovery call</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--mint)"></i>Discovery</div><span>Enter when</span><em>Call booked</em><span>Next action</span><em>Recap email within 24 h</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--mint)"></i>Evaluation</div><span>Enter when</span><em>Fit confirmed on the call</em><span>Next action</span><em>Proposal within 48 h, follow up day 3 and 7</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--lavender)"></i>Trial Proposal</div><span>Enter when</span><em>They agree to a trial</em><span>Next action</span><em>Send Trial Brief and invoice</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--lavender)"></i>Trial</div><span>Enter when</span><em>Brief signed, invoice paid</em><span>Next action</span><em>Day 5 Trial Review</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--pink)"></i>Subscription</div><span>Enter when</span><em>They want to continue</em><span>Next action</span><em>Agreement out within 3 days</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--pink)"></i>Onboarding</div><span>Enter when</span><em>Signed, first month paid</em><span>Next action</span><em>Run onboarding checklist</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--butter)"></i>Delivery</div><span>Enter when</span><em>Access works, priorities agreed</em><span>Next action</span><em>Monthly Review date</em></div>
+              <div class="lane"><div class="lh"><i class="dot" style="--accent:var(--coral)"></i>Renew &amp; Expand</div><span>Enter when</span><em>Quarter ends</em><span>Next action</span><em>Quarterly Review, then ask for referral</em></div>
+              <div class="lane side"><div class="lh">Not a fit</div><span>Enter when</span><em>Fails fit signals</em><span>Next action</span><em>Polite no; keep good people for later</em></div>
+              <div class="lane side"><div class="lh">Not now</div><span>Enter when</span><em>Trial ends without a yes</em><span>Next action</span><em>Monthly check-in, back to Evaluation</em></div>
+              <div class="lane side"><div class="lh">Paused / exited</div><span>Enter when</span><em>Pause or exit notice</em><span>Next action</span><em>Handover; check in at <span class="ph">[3]</span> months</em></div>
+            </div></div>
+            <div class="sec">
+              <h5>Fields on every deal card</h5>
+              <div class="tbl"><table>
+                <tr><th>Field</th><th>What to write</th></tr>
+                <tr><td>Company / contact / role</td><td>Who they are and who you talk to</td></tr>
+                <tr><td>Source</td><td>Referral, warm intro, LinkedIn, website, event</td></tr>
+                <tr><td>Need</td><td>Their problem in their own words</td></tr>
+                <tr><td>Budget range</td><td>Monthly range from discovery</td></tr>
+                <tr><td>Decision-maker</td><td>Name of the person who signs</td></tr>
+                <tr><td>Target start</td><td>Date they mentioned</td></tr>
+                <tr><td>Plan and monthly value</td><td>Filled at Evaluation; drives the revenue forecast</td></tr>
+                <tr><td>Next action and date</td><td>Never empty. One action, one date.</td></tr>
+                <tr><td>Last touch</td><td>Date of the last email or call</td></tr>
+              </table></div>
+              <p class="note">Weekly 15-minute pipeline review: every card has a next action with a date, and nothing has sat in one column for more than two weeks without a reason.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 Credentials Deck -->
+        <article class="tmpl" id="credentials" data-t="deck">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">03</span><span class="chip mono" data-t="deck">Deck</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--mint)"></i>Awareness</span></span></div>
+              <h3>Credentials Deck</h3>
+              <p class="purpose">Twelve slides that explain who S9 is and how the partnership works. Sent with the intro email and readable without you in the room.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <div class="deckband"><span class="mono">12 slides · 16:9 · S9 black and white</span><span class="mono">One idea per slide</span></div>
+            <div class="slides">
+              <div class="slide"><span class="mono">01 · Cover</span><b>S9 Studio. Your embedded design team.</b><p><span class="ph">[Prepared for Client]</span> · <span class="ph">[Month Year]</span></p></div>
+              <div class="slide"><span class="mono">02 · In one line</span><b>Senior design, inside your team, on a monthly plan.</b><p>We join your tools and rituals and ship design every week.</p></div>
+              <div class="slide"><span class="mono">03 · The problem</span><b>Design is the bottleneck.</b><p>Hiring takes months, freelancers come and go, and agencies work at arm's length.</p></div>
+              <div class="slide"><span class="mono">04 · How it works</span><b>Subscribe. Embed. Ship weekly.</b><p>A dedicated designer in your Slack and Figma. Weekly cycles. Pause or stop with <span class="ph">[30]</span> days' notice.</p></div>
+              <div class="slide"><span class="mono">05 · What we design</span><b>Product, brand and marketing.</b><p><span class="ph">[UX/UI, design systems, websites, brand identity, campaigns, decks]</span></p></div>
+              <div class="slide"><span class="mono">06 · Case study</span><b><span class="ph">[Client 1]</span>: <span class="ph">[result headline]</span></b><p>Problem, what we did, one number that changed. One hero image.</p></div>
+              <div class="slide"><span class="mono">07 · Case study</span><b><span class="ph">[Client 2]</span>: <span class="ph">[result headline]</span></b><p>Same three-part structure. Pick a different industry from slide 06.</p></div>
+              <div class="slide"><span class="mono">08 · Case study</span><b><span class="ph">[Client 3]</span>: <span class="ph">[result headline]</span></b><p>Same structure. End with a client quote.</p></div>
+              <div class="slide"><span class="mono">09 · Who you work with</span><b>The people behind S9.</b><p>Photos, names, one line each on background.</p></div>
+              <div class="slide"><span class="mono">10 · How to start</span><b>Try us for a week.</b><p>One real problem, clear success criteria, <span class="ph">[trial price]</span>. If it works, we continue.</p></div>
+              <div class="slide"><span class="mono">11 · Proof</span><b>Teams we've worked with.</b><p>Logo grid and two short quotes.</p></div>
+              <div class="slide"><span class="mono">12 · Next step</span><b>Let's talk for 30 minutes.</b><p><span class="ph">[Booking link]</span> · <span class="ph">[email]</span> · s9studio.com</p></div>
+            </div>
+            <div class="deckfoot">
+              <p class="note">Keep prices out of this deck; they belong in the Proposal. Swap case studies to match the lead's industry before sending.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 Website -->
+        <article class="tmpl" id="website" data-t="doc">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">04</span><span class="chip mono" data-t="doc">Document</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--mint)"></i>Awareness</span></span></div>
+              <h3>Website</h3>
+              <p class="purpose">The always-on version of the Credentials Deck. A page-by-page outline with draft copy for s9studio.com, in the same order a visitor reads it.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <div class="sec">
+              <h4>Home</h4>
+              <div class="tbl"><table>
+                <tr><th>Section</th><th>Draft copy</th></tr>
+                <tr><td>Hero</td><td><b>Your embedded design team.</b> Senior designers inside your tools, shipping every week, on one monthly plan. Button: <i>Book a 30-minute call</i>.</td></tr>
+                <tr><td>Proof bar</td><td>"Trusted by teams at" + <span class="ph">[6 logos]</span></td></tr>
+                <tr><td>How it works</td><td><b>1. Talk.</b> A 30-minute call about what you need. <b>2. Try.</b> One paid week on a real problem. <b>3. Subscribe.</b> Monthly plan, pause or stop with <span class="ph">[30]</span> days' notice.</td></tr>
+                <tr><td>What we design</td><td>Product and UX · Design systems · Websites · Brand · Campaigns and decks</td></tr>
+                <tr><td>Selected work</td><td>Three case study cards: image, client, one-line result</td></tr>
+                <tr><td>Plans</td><td>Three plan cards with "from" prices, or "Plans from <span class="ph">[fee]</span>/month"</td></tr>
+                <tr><td>Trial</td><td><b>Not sure yet? Try us for a week.</b> One real problem, clear success criteria, <span class="ph">[price]</span>.</td></tr>
+                <tr><td>FAQ</td><td>Six questions, reused from the Proposal FAQ</td></tr>
+                <tr><td>Closing call to action</td><td><b>Let's see if we're a fit.</b> Button: <i>Book a call</i></td></tr>
+              </table></div>
+            </div>
+            <div class="sec">
+              <h4>Other pages</h4>
+              <ul>
+                <li><b>Work.</b> Grid of case studies, filter by product, brand and web.</li>
+                <li><b>Case study.</b> Client and industry → the problem → what we did → results with one number → quote → next case study.</li>
+                <li><b>How we work.</b> The weekly cycle, tools we join, what a month looks like, how pause and exit work.</li>
+                <li><b>About.</b> Studio story in three sentences, team photos, where we work from.</li>
+                <li><b>Contact.</b> Booking link, email, short form: name, company, what you need, budget range.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 Proposal -->
+        <article class="tmpl" id="proposal" data-t="doc">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">05</span><span class="chip mono" data-t="doc">Document</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--mint)"></i>Evaluation</span><span class="st"><i class="dot" style="--accent:var(--coral)"></i>Renew &amp; Expand</span></span></div>
+              <h3>Proposal</h3>
+              <p class="purpose">One document that answers everything they need to say yes. Send within 48 hours of discovery and walk them through it on a short call. Reuse it for expansions.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <dl class="kv">
+              <dt>Title</dt><dd>Design partnership proposal for <span class="ph">[Client]</span></dd>
+              <dt>Prepared for</dt><dd><span class="ph">[Name, role]</span></dd>
+              <dt>Date / valid until</dt><dd><span class="ph">[date]</span> / <span class="ph">[date + 30 days]</span></dd>
+            </dl>
+            <div class="sec"><h5>1 · What we heard</h5><p><span class="ph">[Client]</span> is <span class="ph">[one-line context]</span>. Right now, <span class="ph">[their problem in their words]</span>. If nothing changes, <span class="ph">[the stakes they named]</span>.</p></div>
+            <div class="sec"><h5>2 · What success looks like</h5><ul><li><span class="ph">[Outcome 1 they said, e.g. ship the new onboarding by March]</span></li><li><span class="ph">[Outcome 2]</span></li><li><span class="ph">[Outcome 3]</span></li></ul></div>
+            <div class="sec"><h5>3 · How we'd work together</h5><p>S9 joins your team as an embedded design partner. Your dedicated designer works in your <span class="ph">[Slack, Figma, Linear]</span>, joins your <span class="ph">[weekly planning]</span> and ships work every week. You add requests to one shared queue and set the priority; we take them in order. Once a month we review progress together and set next month's priorities.</p></div>
+            <div class="sec"><h5>4 · Who you'd work with</h5><p><span class="ph">[Designer name]</span>, <span class="ph">[role, years, relevant work]</span>. Backed by <span class="ph">[design lead name]</span> for reviews and quality.</p></div>
+            <div class="sec"><h5>5 · Plans and pricing</h5>
+              <div class="tbl"><table>
+                <tr><th>Plan</th><th>Monthly fee</th><th>Includes</th></tr>
+                <tr><td><span class="ph">[Plan 1]</span></td><td><span class="ph">[fee]</span></td><td><span class="ph">[scope]</span></td></tr>
+                <tr><td><span class="ph">[Plan 2] · recommended</span></td><td><span class="ph">[fee]</span></td><td><span class="ph">[scope]</span></td></tr>
+                <tr><td><span class="ph">[Plan 3]</span></td><td><span class="ph">[fee]</span></td><td><span class="ph">[scope]</span></td></tr>
+              </table></div>
+              <p>Billed monthly in advance. Minimum term <span class="ph">[1/3]</span> months, then month to month. Change plan, pause or stop with <span class="ph">[30]</span> days' notice.</p></div>
+            <div class="sec"><h5>6 · Start with a one-week trial</h5><p>We pick one real problem, agree what success looks like, and do the work in five days for <span class="ph">[trial price]</span>. On day 5 we review the work against the success criteria and decide together whether to continue.</p></div>
+            <div class="sec"><h5>7 · Similar work</h5><p><span class="ph">[Case study closest to their industry: problem, what we did, result with one number, quote]</span></p></div>
+            <div class="sec"><h5>8 · Questions clients usually ask</h5>
+              <ul>
+                <li><b>How fast do you deliver?</b> Most requests ship within the week they're started. Larger pieces are split into weekly milestones.</li>
+                <li><b>Who owns the work?</b> You own all final deliverables once each month is paid.</li>
+                <li><b>What if we're not happy?</b> Tell us and we'll fix it. If it still isn't working, stop with <span class="ph">[30]</span> days' notice.</li>
+                <li><b>Can we pause?</b> Yes, up to <span class="ph">[1 month every 6 months]</span>.</li>
+                <li><b>What tools do you use?</b> Yours. We join your workspace and keep all files there.</li>
+                <li><b>What's not included?</b> <span class="ph">[Development, stock and font licences, printing, paid ads]</span></li>
+              </ul></div>
+            <div class="sec"><h5>9 · Security and confidentiality</h5><p>We sign a mutual NDA on request. Your files stay in your workspace. Access uses your accounts and is removed on exit. We follow <span class="ph">[GDPR / your data-processing terms]</span> where personal data is involved.</p></div>
+            <div class="sec"><h5>10 · Next steps</h5><ol><li>Reply to confirm the trial.</li><li>We send a one-page Trial Brief and invoice.</li><li>Kickoff on <span class="ph">[date]</span>.</li></ol></div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ SIGN ============ -->
+      <section class="group">
+        <div class="groupHead"><h2>Sign</h2><p>Trial to Subscription</p></div>
+
+        <!-- 06 Trial Brief -->
+        <article class="tmpl" id="trial-brief" data-t="doc">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">06</span><span class="chip mono" data-t="doc">Document</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--lavender)"></i>Trial Proposal</span><span class="st"><i class="dot" style="--accent:var(--lavender)"></i>Trial Execution</span></span></div>
+              <h3>Trial Brief</h3>
+              <p class="purpose">One page, one signature. The problem, what we'll deliver, how we'll judge it, the price, and short terms at the bottom.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <dl class="kv">
+              <dt>Client</dt><dd><span class="ph">[Company legal name]</span>, <span class="ph">[address]</span></dd>
+              <dt>Main contact</dt><dd><span class="ph">[Name, email]</span></dd>
+              <dt>Trial dates</dt><dd><span class="ph">[Mon date]</span> to <span class="ph">[Fri date]</span> (5 working days)</dd>
+              <dt>S9 team</dt><dd><span class="ph">[Designer]</span>, <span class="ph">[Delivery Lead]</span></dd>
+            </dl>
+            <div class="sec"><h5>The problem</h5><p><span class="ph">[One real problem in two sentences, e.g. "New users drop off at step 3 of sign-up. We need a redesigned flow ready to build."]</span></p></div>
+            <div class="sec"><h5>What we'll deliver</h5><ul><li><span class="ph">[Deliverable 1, e.g. redesigned sign-up flow, 6 screens, desktop and mobile]</span></li><li><span class="ph">[Deliverable 2, e.g. clickable prototype]</span></li><li><span class="ph">[Deliverable 3, e.g. handoff notes for engineering]</span></li></ul></div>
+            <div class="sec"><h5>Success criteria</h5><ol><li><span class="ph">[Measurable or clearly checkable criterion]</span></li><li><span class="ph">[Criterion]</span></li><li><span class="ph">[Criterion]</span></li></ol></div>
+            <div class="sec"><h5>How the week runs</h5><p>Day 1 kickoff call. Short written update at the end of each day. Day 5 review call: the work against the criteria above, then a conversation about continuing.</p></div>
+            <div class="sec"><h5>Price</h5><p><span class="ph">[Trial price + tax]</span>, invoiced on signature and payable before day 1. <span class="ph">[Optional: credited against the first monthly fee if the Client subscribes within 14 days of the review.]</span></p></div>
+            <div class="sec"><h5>Short terms</h5>
+              <ol class="clauses">
+                <li><span><b>Scope.</b> S9 will do the work described above only. Anything else needs a written change agreed by both.</span></li>
+                <li><span><b>Ownership.</b> Once the trial fee is paid, the Client owns the final deliverables. S9 keeps its pre-existing tools, methods and materials and grants the Client a perpetual licence to use any that appear in the deliverables.</span></li>
+                <li><span><b>Portfolio.</b> S9 may show the work after it is public, unless the Client says no in writing.</span></li>
+                <li><span><b>Confidentiality.</b> Each side keeps the other's non-public information confidential and uses it only for this trial.</span></li>
+                <li><span><b>Ending early.</b> Either side may end the trial by written notice. The fee is non-refundable once work has started; S9 hands over all work done so far.</span></li>
+                <li><span><b>Liability.</b> Each side's total liability under this brief is limited to the trial fee, except where the law does not allow a limit.</span></li>
+                <li><span><b>Law.</b> This brief is governed by the laws of <span class="ph">[jurisdiction]</span>.</span></li>
+              </ol></div>
+            <div class="sig">
+              <div><h5>For <span class="ph">[Client]</span></h5><span>Name and title</span><span>Signature</span><span>Date</span></div>
+              <div><h5>For S9 Studio</h5><span>Name and title</span><span>Signature</span><span>Date</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 07 Service Agreement -->
+        <article class="tmpl" id="agreement" data-t="legal">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">07</span><span class="chip mono" data-t="legal">Legal</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--pink)"></i>Subscription</span><span class="st"><i class="dot" style="--accent:var(--coral)"></i>Renew &amp; Expand</span></span></div>
+              <h3>Service Agreement</h3>
+              <p class="purpose">One contract for the subscription. Page one is the plan in plain words; the terms follow. Add a data processing annex only if S9 handles personal data.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <p class="note">Draft for discussion with your lawyer. Square-bracket values are commercial choices; set them once in the playbook so every agreement matches.</p>
+            <div class="sec">
+              <h4>Page 1 · Plan summary</h4>
+              <dl class="kv">
+                <dt>Parties</dt><dd>S9 Studio <span class="ph">[legal entity, registration no., address]</span> ("S9") and <span class="ph">[Client legal name, registration no., address]</span> ("Client")</dd>
+                <dt>Plan</dt><dd><span class="ph">[Plan name]</span>: <span class="ph">[designers, active requests, scope]</span></dd>
+                <dt>Monthly fee</dt><dd><span class="ph">[amount + currency]</span> excluding tax, billed monthly in advance</dd>
+                <dt>Start date</dt><dd><span class="ph">[date]</span></dd>
+                <dt>Minimum term</dt><dd><span class="ph">[1 / 3]</span> months, then rolling monthly</dd>
+                <dt>Notice to change, pause or exit</dt><dd><span class="ph">[30]</span> days in writing</dd>
+                <dt>Payment terms</dt><dd>Due within <span class="ph">[7]</span> days of invoice</dd>
+                <dt>Contacts</dt><dd>Client: <span class="ph">[name, email]</span> · S9: <span class="ph">[name, email]</span></dd>
+              </dl>
+            </div>
+            <div class="sec">
+              <h4>Terms</h4>
+              <ol class="clauses">
+                <li><span><b>Services.</b> S9 provides design services under the Plan on a subscription basis. The Client adds requests to an agreed queue and sets priority. S9 works in weekly cycles and holds a monthly review with the Client.</span></li>
+                <li><span><b>Client responsibilities.</b> The Client gives S9 timely access to people, tools and information, names one decision-maker, and gives feedback within <span class="ph">[2]</span> working days. Delays caused by late input do not extend the subscription or reduce fees.</span></li>
+                <li><span><b>Fees and payment.</b> Fees are invoiced monthly in advance. Late payments carry interest at <span class="ph">[rate]</span>, and S9 may pause work if an invoice is more than <span class="ph">[14]</span> days overdue after a reminder. Fees exclude taxes, licences for third-party assets and expenses approved in advance.</span></li>
+                <li><span><b>Changes to the Plan.</b> Either side may propose a Plan change. Upgrades start from the next cycle, or sooner if agreed; downgrades start from the next billing month after <span class="ph">[30]</span> days' notice.</span></li>
+                <li><span><b>Intellectual property.</b> On payment of each month's fee, the Client owns all rights in the final deliverables produced in that month. S9 keeps its pre-existing materials, templates, tools and know-how, and grants the Client a perpetual, royalty-free licence to use any that are built into the deliverables. Unused concepts and drafts remain S9's. Third-party assets (fonts, stock, code libraries) are subject to their own licences.</span></li>
+                <li><span><b>Portfolio.</b> S9 may display the work and name the Client as a client once the work is public, unless the Client asks it not to in writing.</span></li>
+                <li><span><b>Confidentiality.</b> Each side keeps the other's confidential information secret, uses it only to perform this agreement, and limits access to people who need it. This lasts for <span class="ph">[3]</span> years after the agreement ends. It does not cover information that is public, already known, independently developed or required to be disclosed by law.</span></li>
+                <li><span><b>Data protection.</b> If S9 processes personal data on the Client's behalf, the parties will sign the data processing annex, which then forms part of this agreement.</span></li>
+                <li><span><b>Warranties.</b> S9 will perform the services with reasonable skill and care, and the deliverables will be original or properly licensed. The Client warrants that materials it provides do not infringe anyone's rights.</span></li>
+                <li><span><b>Liability.</b> Neither side is liable for indirect or consequential loss, lost profits or lost data. Each side's total liability in any 12-month period is limited to the fees paid in the <span class="ph">[3]</span> months before the claim. These limits do not apply to fraud, death or personal injury caused by negligence, breach of confidentiality, or anything else that cannot be limited by law.</span></li>
+                <li><span><b>Pause.</b> The Client may pause the subscription for up to <span class="ph">[1]</span> month in any <span class="ph">[6]</span>-month period with <span class="ph">[14]</span> days' notice. No fees are charged during a pause and the minimum term is extended by the length of the pause.</span></li>
+                <li><span><b>Term and exit.</b> This agreement starts on the Start date and continues until ended. After the minimum term, either side may end it with <span class="ph">[30]</span> days' written notice. Either side may end it immediately if the other materially breaches it and does not fix the breach within <span class="ph">[14]</span> days of notice, or becomes insolvent. On exit, S9 hands over all paid-for files, the Client pays fees due up to the end date, and access is removed.</span></li>
+                <li><span><b>Non-solicitation.</b> During the agreement and for <span class="ph">[12]</span> months after, neither side will directly hire the other's staff who worked on the services without written consent, <span class="ph">[or pays a placement fee of X]</span>.</span></li>
+                <li><span><b>General.</b> S9 is an independent contractor. This agreement is the whole agreement and replaces earlier discussions, including the Trial Brief once signed. Changes must be in writing and signed by both. Neither side may assign it without consent. Notices go to the contacts on page 1 by email. This agreement is governed by the laws of <span class="ph">[jurisdiction]</span> and the courts of <span class="ph">[city]</span> have exclusive jurisdiction.</span></li>
+              </ol>
+            </div>
+            <div class="sig">
+              <div><h5>For <span class="ph">[Client]</span></h5><span>Name and title</span><span>Signature</span><span>Date</span></div>
+              <div><h5>For S9 Studio</h5><span>Name and title</span><span>Signature</span><span>Date</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 08 NDA -->
+        <article class="tmpl" id="nda" data-t="legal">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">08</span><span class="chip mono" data-t="legal">Legal</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--mint)"></i>Evaluation · only when asked</span></span></div>
+              <h3>Mutual NDA</h3>
+              <p class="purpose">A short two-way NDA for when a prospect asks for one or needs to share confidential material before the proposal.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <p class="note">Draft for discussion with your lawyer. If the prospect sends their own NDA, check it against these points instead of insisting on this one.</p>
+            <p>This Mutual Non-Disclosure Agreement is made on <span class="ph">[date]</span> between S9 Studio <span class="ph">[legal entity, address]</span> and <span class="ph">[Company legal name, address]</span> (each a "Party").</p>
+            <ol class="clauses">
+              <li><span><b>Purpose.</b> The Parties want to share information to discuss a possible design partnership (the "Purpose").</span></li>
+              <li><span><b>Confidential information.</b> Any non-public information one Party shares with the other, in any form, that is marked confidential or that a reasonable person would understand to be confidential.</span></li>
+              <li><span><b>Exclusions.</b> Information that is or becomes public through no fault of the receiving Party, was already known to it, is received from a third party without restriction, or is developed independently.</span></li>
+              <li><span><b>Obligations.</b> The receiving Party will use confidential information only for the Purpose, protect it with at least reasonable care, and share it only with employees and advisers who need it and are bound by similar duties.</span></li>
+              <li><span><b>Required disclosure.</b> If the law requires disclosure, the receiving Party will tell the other Party first where allowed and disclose only what is required.</span></li>
+              <li><span><b>Return or destruction.</b> On request, each Party will return or delete the other's confidential information, except copies kept in routine backups or required by law.</span></li>
+              <li><span><b>No licence or obligation.</b> No rights are granted other than to use information for the Purpose. Neither Party must enter into any further agreement.</span></li>
+              <li><span><b>Term.</b> This agreement covers information shared within <span class="ph">[12]</span> months of the date above. Obligations last <span class="ph">[3]</span> years from each disclosure.</span></li>
+              <li><span><b>Remedies.</b> A breach may cause harm that money cannot fix, so the disclosing Party may seek an injunction as well as other remedies.</span></li>
+              <li><span><b>Law.</b> This agreement is governed by the laws of <span class="ph">[jurisdiction]</span>.</span></li>
+            </ol>
+            <div class="sig">
+              <div><h5>For <span class="ph">[Company]</span></h5><span>Name and title</span><span>Signature</span><span>Date</span></div>
+              <div><h5>For S9 Studio</h5><span>Name and title</span><span>Signature</span><span>Date</span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ SERVE ============ -->
+      <section class="group">
+        <div class="groupHead"><h2>Serve</h2><p>Onboarding to Renewal</p></div>
+
+        <!-- 09 Onboarding -->
+        <article class="tmpl" id="onboarding" data-t="internal">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">09</span><span class="chip mono" data-t="internal">Internal</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--pink)"></i>Onboarding</span></span></div>
+              <h3>Onboarding checklist</h3>
+              <p class="purpose">Everything that has to be true by the end of week one. Starts with the sales handoff so the delivery team never asks the client something they already told us.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <div class="sec">
+              <h5>Sales handoff notes · Founder fills in before kickoff</h5>
+              <dl class="kv">
+                <dt>Client and plan</dt><dd><span class="ph">[Company] · [Plan] · [start date]</span></dd>
+                <dt>Their problem, in their words</dt><dd><span class="ph">[from the discovery recap]</span></dd>
+                <dt>What success looks like</dt><dd><span class="ph">[from the Proposal, section 2]</span></dd>
+                <dt>People</dt><dd><span class="ph">[decision-maker, day-to-day contact, others]</span></dd>
+                <dt>Trial learnings</dt><dd><span class="ph">[what worked, what to watch]</span></dd>
+                <dt>Promises made in sales</dt><dd><span class="ph">[anything agreed outside the contract]</span></dd>
+                <dt>Sensitivities</dt><dd><span class="ph">[past agency issues, internal politics, deadlines]</span></dd>
+              </dl>
+            </div>
+            <div class="cols2">
+              <div class="sec"><h5>Admin</h5><ul class="check">
+                <li>Signed agreement filed</li><li>First invoice paid</li><li>Data processing annex signed, if needed</li><li>Deal moved to Onboarding in the CRM</li><li>Welcome-aboard email sent</li></ul></div>
+              <div class="sec"><h5>Access and tools</h5><ul class="check">
+                <li>Accounts in their Slack / Teams</li><li>Figma or design tool seats</li><li>Project tracker access</li><li>Brand assets, fonts and existing files received</li><li>Shared folder created in their workspace</li></ul></div>
+              <div class="sec"><h5>Rhythm</h5><ul class="check">
+                <li>Shared channel named <span class="ph">s9-[client]</span></li><li>Weekly planning slot booked</li><li>Weekly update day agreed</li><li>Monthly review booked for the next 3 months</li><li>Quarterly review date in the calendar</li></ul></div>
+              <div class="sec"><h5>First 30 days</h5><ul class="check">
+                <li>Kickoff call held (reuse the trial kickoff format)</li><li>Request queue set up and first 5 requests prioritised</li><li>30-day priorities written and agreed</li><li>First piece of work shipped in week one</li><li>Check-in with decision-maker at day 14</li></ul></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10 Delivery & QA -->
+        <article class="tmpl" id="delivery" data-t="internal">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">10</span><span class="chip mono" data-t="internal">Internal</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--lavender)"></i>Trial Execution</span><span class="st"><i class="dot" style="--accent:var(--butter)"></i>Delivery</span></span></div>
+              <h3>Delivery &amp; QA checklist</h3>
+              <p class="purpose">How S9 works each week and what "done" means. Every piece of work passes this list before the client sees it.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <div class="sec">
+              <h5>The weekly cycle</h5>
+              <div class="tbl"><table>
+                <tr><th>When</th><th>What happens</th></tr>
+                <tr><td>Monday</td><td>Plan the week from the top of the queue. Confirm priorities in the client channel.</td></tr>
+                <tr><td>Daily</td><td>Work in progress shared in the channel. Questions asked early, not on Friday.</td></tr>
+                <tr><td>Wednesday</td><td>Mid-week check: on track or flag the risk now.</td></tr>
+                <tr><td>Thursday</td><td>Internal review by a second designer or the Delivery Lead.</td></tr>
+                <tr><td>Friday</td><td>Ship. Send the weekly update email.</td></tr>
+                <tr><td>Monthly</td><td>Monthly Review deck: shipped, impact, next month's priorities.</td></tr>
+              </table></div>
+            </div>
+            <div class="cols2">
+              <div class="sec"><h5>Definition of done · the work</h5><ul class="check">
+                <li>Answers the brief and the request as written</li>
+                <li>Checked by a second person</li>
+                <li>Uses the client's design system or brand rules</li>
+                <li>Text contrast meets WCAG AA</li>
+                <li>All states covered: empty, loading, error, long text</li>
+                <li>Works at every breakpoint that matters</li>
+                <li>No spelling mistakes or placeholder text</li></ul></div>
+              <div class="sec"><h5>Definition of done · the handoff</h5><ul class="check">
+                <li>Files named and organised in the client's workspace</li>
+                <li>Components and styles linked, not detached</li>
+                <li>Handoff notes for engineering or print</li>
+                <li>Assets exported in the formats needed</li>
+                <li>Third-party licences recorded</li>
+                <li>Request marked done in the queue</li>
+                <li>Included in Friday's weekly update</li></ul></div>
+            </div>
+            <p class="note">If a piece can't pass the list by Friday, ship what passes and say clearly in the update what moves to next week and why.</p>
+          </div>
+        </article>
+
+        <!-- 11 Review deck -->
+        <article class="tmpl" id="review" data-t="deck">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">11</span><span class="chip mono" data-t="deck">Deck</span>
+                <span class="steps mono"><span class="st"><i class="dot" style="--accent:var(--lavender)"></i>Trial Review</span><span class="st"><i class="dot" style="--accent:var(--butter)"></i>Monthly</span><span class="st"><i class="dot" style="--accent:var(--coral)"></i>Quarterly</span></span></div>
+              <h3>Review deck</h3>
+              <p class="purpose">One deck structure for the day 5 Trial Review, the Monthly Review and the Quarterly Review. Only the time window and the final ask change.</p>
+            </div>
+            <button class="copy" type="button">Copy template</button>
+          </div>
+          <div class="tpl">
+            <div class="deckband"><span class="mono">8 slides · 20-minute meeting</span><span class="mono">Look back, then look ahead</span></div>
+            <div class="slides">
+              <div class="slide"><span class="mono">01 · Cover</span><b><span class="ph">[Trial / Month / Quarter]</span> review</b><p><span class="ph">[Client]</span> × S9 · <span class="ph">[date range]</span></p></div>
+              <div class="slide"><span class="mono">02 · What we set out to do</span><b>The goals for this period.</b><p>Trial: success criteria from the brief. Monthly: last month's priorities. Quarterly: the quarter's outcomes.</p></div>
+              <div class="slide"><span class="mono">03 · What shipped</span><b><span class="ph">[N]</span> pieces of work shipped.</b><p>List or grid, each tagged with the goal it served.</p></div>
+              <div class="slide"><span class="mono">04 · Highlights</span><b><span class="ph">[Best piece of work]</span></b><p>Before and after. One slide per highlight, two or three at most.</p></div>
+              <div class="slide"><span class="mono">05 · Impact</span><b><span class="ph">[One number that moved]</span></b><p>Conversion, time saved, launches hit, or a quote from their team.</p></div>
+              <div class="slide"><span class="mono">06 · Goals vs. result</span><b>Met, partly met, missed.</b><p>Each goal from slide 02 with an honest status and one line on why.</p></div>
+              <div class="slide"><span class="mono">07 · Next period</span><b>Priorities for <span class="ph">[next month / quarter]</span>.</b><p>Three to five, in order. Agreed in the room.</p></div>
+              <div class="slide"><span class="mono">08 · The ask</span><b>Decision for today.</b><p>Trial: continue on <span class="ph">[Plan]</span> from <span class="ph">[date]</span>. Monthly: confirm priorities. Quarterly: renew, add scope or move up a plan.</p></div>
+            </div>
+            <div class="deckfoot">
+              <div class="tbl"><table>
+                <tr><th>Version</th><th>Looks back</th><th>Owner</th><th>Ends with</th></tr>
+                <tr><td>Trial Review</td><td>5 days</td><td>Delivery Lead</td><td>Plan, price, start date, then Service Agreement within 3 days</td></tr>
+                <tr><td>Monthly Review</td><td>1 month</td><td>Delivery Team</td><td>Next month's priorities agreed</td></tr>
+                <tr><td>Quarterly Review</td><td>3 months</td><td>Founder + Delivery Lead</td><td>Renewal or expansion options; after a strong quarter, the testimonial and referral ask</td></tr>
+              </table></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12 Emails -->
+        <article class="tmpl" id="emails" data-t="email">
+          <div class="thead">
+            <div>
+              <div class="top"><span class="mono">12</span><span class="chip mono" data-t="email">Email</span>
+                <span class="steps mono"><span class="st">Awareness to Renew &amp; Expand</span></span></div>
+              <h3>Email templates</h3>
+              <p class="purpose">Short emails with one job each. The nine from the kit, plus the two branch emails for "not a fit" and "not now". Each has its own copy button.</p>
+            </div>
+            <button class="copy" type="button">Copy all emails</button>
+          </div>
+          <div class="tpl">
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--mint);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Awareness</span><b>Intro email</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: <span class="ph">[Mutual contact]</span> suggested we talk</div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+<span class="ph">[Mutual contact]</span> mentioned you're <span class="ph">[hiring designers / about to launch X / rebuilding the product]</span>. S9 works as an embedded design team for companies like <span class="ph">[similar client]</span>: senior designers inside your tools, shipping every week, on a monthly plan.
+
+I've attached a short deck with three examples. Would a 30-minute call next week be useful? <span class="ph">[Booking link]</span>
+
+<span class="ph">[Your name]</span>
+S9 Studio</div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--mint);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Discovery · within 24 h</span><b>Recap email</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: Recap of our call and next step</div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+Thanks for the time today. Here's what I heard, so you can correct anything I got wrong:
+
+• Right now: <span class="ph">[their problem in their words]</span>
+• What success looks like: <span class="ph">[outcome]</span>
+• Timing: <span class="ph">[start date]</span>, budget around <span class="ph">[range]</span>
+
+Next step: I'll send a short proposal by <span class="ph">[day]</span> and walk you through it in 20 minutes. Does <span class="ph">[day, time]</span> work?
+
+<span class="ph">[Your name]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono">Discovery · branch</span><b>Not a fit</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: Thanks, and a suggestion</div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+Thanks again for walking me through <span class="ph">[project]</span>. Having thought about it, I don't think we're the right fit for this one: <span class="ph">[honest one-line reason, e.g. it's a single project and we work best on ongoing work]</span>.
+
+<span class="ph">[Studio or freelancer]</span> would be a great match. Happy to introduce you. And if things change, I'd love to hear from you.
+
+<span class="ph">[Your name]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--mint);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Evaluation · day 3 and day 7</span><b>Follow-up email</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: Re: Design partnership proposal for <span class="ph">[Client]</span></div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+Any questions about the proposal I can answer? If it would help to see how the trial week would work for <span class="ph">[problem]</span>, I'm happy to jump on a quick call.
+
+<span class="ph">[Day 7 version: "I'll stop nudging after this one. If now isn't the right time, just tell me and I'll check back in a couple of months."]</span>
+
+<span class="ph">[Your name]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--lavender);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Trial Proposal</span><b>Trial confirmation email</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: Your S9 trial week starts <span class="ph">[Monday date]</span></div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+Thanks for signing. The trial starts on <span class="ph">[date]</span> with a 45-minute kickoff at <span class="ph">[time]</span>.
+
+Who should join: <span class="ph">[decision-maker and day-to-day contact]</span>
+What to prepare: <span class="ph">[access to Figma and Slack, brand files, any research or data on the problem]</span>
+
+You'll get a three-line update at the end of each day and we'll review the work together on <span class="ph">[Friday date]</span>.
+
+<span class="ph">[Your name]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--lavender);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Trial Execution · each day</span><b>Daily update</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: Trial day <span class="ph">[N]</span> of 5</div>
+              <div class="msg">Done: <span class="ph">[what we finished, with link]</span>
+Next: <span class="ph">[what we're doing tomorrow]</span>
+Need from you: <span class="ph">[feedback on X by noon / nothing today]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono">Trial Execution · branch</span><b>Not now</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: Thank you, and the work from this week</div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+Thanks for trying S9 this week. All the work is in <span class="ph">[link]</span> and it's yours to use.
+
+I understand the timing isn't right. I'll check in once a month, and when you're ready we can pick up where we left off.
+
+<span class="ph">[Your name]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--pink);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Subscription</span><b>Welcome-aboard email</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: Welcome to S9, <span class="ph">[Client]</span></div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+We're glad to have you on board. Your <span class="ph">[Plan]</span> starts on <span class="ph">[date]</span>; the first invoice is attached.
+
+What happens next:
+1. <span class="ph">[Delivery Lead]</span> will set up access and our shared channel this week.
+2. Kickoff on <span class="ph">[date]</span> to agree the first 30 days of priorities.
+3. First work ships by <span class="ph">[Friday date]</span>.
+
+Questions about anything, just reply here.
+
+<span class="ph">[Your name]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--butter);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Delivery · every Friday</span><b>Weekly update</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: S9 weekly update · week of <span class="ph">[date]</span></div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+Shipped this week:
+• <span class="ph">[Item, with link]</span>
+• <span class="ph">[Item, with link]</span>
+
+Next week: <span class="ph">[top 2–3 from the queue]</span>
+What we need from you: <span class="ph">[feedback, access or decisions, with dates]</span>
+
+<span class="ph">[Designer name]</span></div>
+            </div>
+            <div class="mail">
+              <div class="mh"><span class="mono"><i class="dot" style="--accent:var(--coral);display:inline-block;vertical-align:-1px;margin-right:6px"></i>Renew &amp; Expand · after a strong quarter</span><b>Testimonial and referral ask</b><button class="mini" type="button">Copy</button></div>
+              <div class="subj">Subject: A small favour</div>
+              <div class="msg">Hi <span class="ph">[Name]</span>,
+
+This quarter we <span class="ph">[biggest result, e.g. shipped the new onboarding and lifted activation by 18%]</span>. Thank you for being such a good partner.
+
+Two small asks, only if you're happy to:
+1. Could you write two or three sentences about working with S9? I can draft something for you to edit if that's easier.
+2. Do you know one other team who could use design help like this? An intro by email is perfect.
+
+<span class="ph">[Your name]</span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <p class="foot">Built from the approved S9 Sales Flow. Legal templates (Trial Brief terms, Service Agreement, Mutual NDA) are starting drafts, not legal advice; have a lawyer in your jurisdiction review them before first use.</p>
+    </main>
+  </div>
+</div>
+
+<script>
+function copyText(text,btn,label){
+  const done=()=>{btn.textContent="Copied";btn.dataset.done="";setTimeout(()=>{btn.textContent=label;delete btn.dataset.done},1600)};
+  const fallback=()=>{const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done()}catch(e){btn.textContent="Select and copy manually"}ta.remove()};
+  try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+}
+const clean=el=>{const c=el.cloneNode(true);c.querySelectorAll("button").forEach(b=>b.remove());return c.innerText.replace(/\n{3,}/g,"\n\n").trim()};
+document.querySelectorAll(".tmpl").forEach(t=>{
+  const btn=t.querySelector(".copy"),label=btn.textContent;
+  btn.addEventListener("click",()=>copyText(t.querySelector("h3").innerText+"\n\n"+clean(t.querySelector(".tpl")),btn,label));
+});
+document.querySelectorAll(".mail").forEach(m=>{
+  const btn=m.querySelector(".mini");
+  btn.addEventListener("click",()=>copyText(m.querySelector(".subj").innerText+"\n\n"+m.querySelector(".msg").innerText,btn,"Copy"));
+});
+// Highlight the index link for the template in view
+const links=[...document.querySelectorAll(".index a")];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.setAttribute("aria-current",a.hash==="#"+e.target.id?"true":"false"))}}),{rootMargin:"-30% 0px -60% 0px"});
+document.querySelectorAll(".tmpl").forEach(t=>io.observe(t));
+if(location.hash){const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView()}
+</script>
